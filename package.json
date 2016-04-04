@@ -10,7 +10,7 @@
     "url": "git@github.com:brunch/karma-brunch.git"
   },
   "scripts": {
-    "test": "node_modules/.bin/eslint index.js && node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/eslint index.js && ./node_modules/.bin/mocha"
   },
   "dependencies": {
     "karma": "~0.13.22",
