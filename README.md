@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/denar90/karma-brunch.svg?branch=master)](https://travis-ci.org/denar90/karma-brunch)
+
 ## karma-brunch
 Adds karma support to
 [brunch](http://brunch.io).
