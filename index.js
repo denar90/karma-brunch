@@ -2,17 +2,18 @@
 
 /*eslint-env es6*/
 const Server = require('karma').Server;
-let server;
 
 class KarmaPlugin {
   constructor(config) {
-    config = config || config.plugins || config.plugins.karma;
-    server = new Server(config);
+    if (config == null) config = {};
+    this.config = config.plugins && config.plugins.karma || config;
   }
 
   onCompile() {
-    //start karma
-    server.start();
+    if (Object.keys(this.config).length !== 0) {
+      //start karma
+      new Server(this.config).start();
+    }
   }
 }
 
