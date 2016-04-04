@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:brunch/karma-brunch.git"
+    "url": "git@github.com:denar90/karma-brunch.git"
   },
   "scripts": {
     "test": "./node_modules/.bin/eslint index.js && ./node_modules/.bin/mocha"
