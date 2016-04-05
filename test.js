@@ -20,11 +20,26 @@ let karmaConf = {
   singleRun: true
 };
 
+const getConfig = function(karmaConf) {
+  return {
+    plugins: {
+      karma: karmaConf
+    }
+  };
+}
+
 describe('Plugin', () => {
   let plugin;
 
   before(() => {
-    plugin = new Plugin(karmaConf);
+    plugin = new Plugin(getConfig(karmaConf));
+  });
+
+  beforeEach(() => {
+    //set default config for each spec
+    karmaConf = {
+      singleRun: true
+    };
   });
 
   it('should be an object', () => {
@@ -34,7 +49,7 @@ describe('Plugin', () => {
   describe('Karma PhantomJS', () => {
     before(() => {
       karmaConf.browsers = [karmaBrowsers.PhantomJS];
-      plugin = new Plugin(karmaConf);
+      plugin = new Plugin(getConfig(karmaConf));
       plugin.onCompile();
     });
     it('should run with PhantomJS', () => {
@@ -42,13 +57,13 @@ describe('Plugin', () => {
     });
   })
 
-  describe('Karma PhantomJS', () => {
+  describe('Karma chai', () => {
     before(() => {
-      karmaConf.browsers = [karmaBrowsers.PhantomJS];
-      plugin = new Plugin(karmaConf);
+      karmaConf.karmaFrameworks = [karmaFrameworks.chai];
+      plugin = new Plugin(getConfig(karmaConf));
       plugin.onCompile();
     });
-    it('should run with PhantomJS', () => {
+    it('should run with chai', () => {
       expect(plugin).to.be.ok;
     });
   })
@@ -56,7 +71,7 @@ describe('Plugin', () => {
   describe('Karma mocha', () => {
     before(() => {
       karmaConf.frameworks = [karmaFrameworks.mocha];
-      plugin = new Plugin(karmaConf);
+      plugin = new Plugin(getConfig(karmaConf));
       plugin.onCompile();
     });
     it('should run with mocha', () => {
@@ -67,7 +82,7 @@ describe('Plugin', () => {
   describe('Karma jasmine', () => {
     before(() => {
       karmaConf.frameworks = [karmaFrameworks.jasmine];
-      plugin = new Plugin(karmaConf);
+      plugin = new Plugin(getConfig(karmaConf));
       plugin.onCompile();
     });
     it('should run with jasmine', () => {
@@ -78,7 +93,7 @@ describe('Plugin', () => {
   describe('Karma coverage', () => {
     before(() => {
       karmaConf.reporters = [karmaReporters.coverage];
-      plugin = new Plugin(karmaConf);
+      plugin = new Plugin(getConfig(karmaConf));
       plugin.onCompile();
     });
     it('should run with coverage', () => {
@@ -91,7 +106,7 @@ describe('Plugin', () => {
         karmaReporters.coverage,
         karmaReporters.coveralls
       ];
-      plugin = new Plugin(karmaConf);
+      plugin = new Plugin(getConfig(karmaConf));
       plugin.onCompile();
     });
     it('should run with coveralls', () => {

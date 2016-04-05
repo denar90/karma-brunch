@@ -5,8 +5,7 @@ const Server = require('karma').Server;
 
 class KarmaPlugin {
   constructor(config) {
-    if (config == null) config = {};
-    this.config = config.plugins && config.plugins.karma || config;
+    this.config = config && config.plugins && config.plugins.karma;
   }
 
   onCompile() {
