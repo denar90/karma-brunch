@@ -10,7 +10,7 @@ class KarmaPlugin {
   }
 
   onCompile() {
-    if (Object.keys(this.config).length !== 0) {
+    if (this.config) {
       //start karma
       new Server(this.config).start();
     }
