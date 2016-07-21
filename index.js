@@ -9,11 +9,13 @@ class KarmaPlugin {
   }
 
   onCompile() {
-    if (this.config) {
+    if (this.config && !this.server) {
       //start karma
-      new Server(this.config).start();
+      this.server = new Server(this.config);
+      this.server.start();
     }
   }
+
 }
 
 KarmaPlugin.prototype.brunchPlugin = true;

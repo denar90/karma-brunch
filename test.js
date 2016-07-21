@@ -113,4 +113,16 @@ describe('Plugin', () => {
       expect(plugin).to.be.ok;
     });
   })
+  describe('Karma server', () => {
+    before(() => {
+      plugin = new Plugin(getConfig(karmaConf));
+      plugin.onCompile();
+    });
+    it('should not be recreated on each compile', () => {
+      let server = plugin.server;
+
+      plugin.onCompile();
+      expect(plugin.server).to.equal(server);
+    });
+  })
 });
