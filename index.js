@@ -20,5 +20,6 @@ class KarmaPlugin {
 
 KarmaPlugin.prototype.brunchPlugin = true;
 KarmaPlugin.prototype.extension = 'js';
+KarmaPlugin.prototype.defaultEnv = 'test';
 
 module.exports = KarmaPlugin;

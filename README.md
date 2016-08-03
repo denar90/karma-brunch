@@ -13,6 +13,8 @@ Or, do manual install:
 * If you want to use git version of plugin, use the GitHub URI
 `"karma-brunch": "denar90/karma-brunch"`.
 
+And run brunch with the test environment. For instance `brunch watch --env=test`
+
 ###Config example with karma
 ```javascript
 
